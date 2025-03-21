@@ -49,5 +49,3 @@ int main() {
         goriber_solve();
     }
 }
-
-//
