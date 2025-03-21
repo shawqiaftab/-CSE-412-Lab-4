@@ -1,3 +1,13 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+using ll = long long;
+#define all(x) (x).begin(), (x).end()
+#define Fi first
+#define Se second
+
 const int N = 1e6 + 10;
 ll ans = 0;
 vector<ll> a;
@@ -62,4 +72,35 @@ vector<ll> mo_s_algorithm(vector<Query> queries) {
         answers[q.idx] = get_ans();
     }
     return answers;
+}
+
+void goriber_solve(){
+    int n, q;
+    cin >> n >> q;
+    a.resize(n);
+    for(auto &k : a) cin >> k;
+    vector<Query> qu(q);
+    int c = 0;;
+    for(auto &[x, y, id] : qu){
+        cin >> x >> y;
+        id = c; 
+        c += 1;
+        x -= 1, y -= 1;
+    }
+    vector<ll> ans = mo_s_algorithm(qu);
+    for(const auto &k : ans)
+        cout << k << '\n';
+}
+
+int main(){
+    cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+
+    int t = 1; 
+    // cin >> t ;
+    // cerr << sqrtl(1e6) << '\n';
+
+    while(t--){
+        goriber_solve() ;
+    }
 }
